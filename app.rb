@@ -44,7 +44,6 @@ class HangpersonApp < Sinatra::Base
       redirect '/show'
     end
     puts "GUESSING"
-    letter = letter.lower
     puts @game.word
     if (@game.guesses.include? letter) || (@game.wrong_guesses.include? letter)
       flash[:message] = "You have already used that letter."
