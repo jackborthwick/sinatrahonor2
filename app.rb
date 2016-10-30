@@ -49,7 +49,7 @@ class HangpersonApp < Sinatra::Base
       flash[:message] = "You have already used that letter."
       redirect '/show'
     else 
-      if @game.guess(letter)
+      if @game.guess(letter.lower)
         status = @game.check_win_or_lose
         case status
         when :win
