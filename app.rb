@@ -42,8 +42,6 @@ class HangpersonApp < Sinatra::Base
     if letter == nil || letter[/[a-zA-Z]+/] != letter 
       flash[:message] = "Invalid guess."
       redirect '/show'
-    else 
-      letter = letter.lower
     end
     puts "GUESSING"
     puts @game.word
