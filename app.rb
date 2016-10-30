@@ -45,11 +45,11 @@ class HangpersonApp < Sinatra::Base
     end
     puts "GUESSING"
     puts @game.word
-    if (@game.guesses.include? letter) || (@game.wrong_guesses.include? letter)
+    if (@game.guesses.include? letter.lower) || (@game.wrong_guesses.include? letter.lower)
       flash[:message] = "You have already used that letter."
       redirect '/show'
     else 
-      if @game.guess(letter)
+      if @game.guess(letter.lower)
         status = @game.check_win_or_lose
         case status
         when :win
